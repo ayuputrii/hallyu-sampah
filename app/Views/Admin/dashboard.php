@@ -1,0 +1,28 @@
+<?= $this->extend('/Layouts/Admin/layout') ?>
+<?= $this->section('content') ?>
+
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="alert alert-primary">
+            <i class="icon fas fa-user"></i> Selamat Datang di Hallyu Sampah!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?= $this->endSection() ?>
