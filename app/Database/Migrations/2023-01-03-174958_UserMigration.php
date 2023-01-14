@@ -29,7 +29,7 @@ class UserMigration extends Migration
             ],
             'level'      => [
                 'type'       => 'ENUM',
-                'constraint' => ['Admin','Staff','Partner','User'],
+                'constraint' => ['Admin','Staff','User'],
             ],
             'photo'      => [
                 'type'       => 'VARCHAR',

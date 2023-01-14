@@ -47,8 +47,7 @@ class Auth extends BaseController
     if ($this->form_validation->run($data_validasi, 'register') == FALSE) {
       $validasi = [
           'error'   => true,
-          'register_error' => $this->form_validation->getErrors(),
-          'link' => base_url('user/register')
+          'register_error' => $this->form_validation->getErrors()
         ];
       echo json_encode($validasi);
     } else {
@@ -60,9 +59,9 @@ class Auth extends BaseController
         $this->Customer->save($data);
         $validasi = [
           'success' => true,
-          'link'    => base_url('user/dashboard')
-        ];
-      return redirect('user/dashboard', $validasi);
+          'link'    => base_url('user')
+        ];      
+      echo json_encode($validasi);
     }
   }
 
@@ -74,7 +73,7 @@ class Auth extends BaseController
   }
 
   // Cek Login Admin
-  public function cek_admin_login()
+  public function admin_login()
   {
      $username = $this->request->getPost('username');
      $password = $this->request->getPost('password');
@@ -109,7 +108,6 @@ class Auth extends BaseController
                  $this->session->set($newdata);
                  $validasi = [
                     'success'   => true,
-                    'link'      => base_url('admin/dashboard')
                  ];
                 //  echo json_encode($validasi);
                  return redirect('admin/dashboard', $validasi);
@@ -149,7 +147,7 @@ class Auth extends BaseController
   }
 
   // Cek Login User
-  public function cek_user_login()
+  public function user_login()
   {
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
@@ -162,7 +160,7 @@ class Auth extends BaseController
     //Cek Validasi, Jika Data Tidak Valid 
     if ($this->form_validation->run($cek_validasi, 'login') == FALSE) {
         $validasi = [
-          'error'   => true,
+          'error'       => true,
           'login_error' => $this->form_validation->getErrors()
         ];               
         echo json_encode($validasi);
@@ -187,7 +185,6 @@ class Auth extends BaseController
                 $this->session->set($newdata);
                 $validasi = [
                     'success'   => true,
-                    'link'      => base_url('user/dashboard')
                 ];
                 return redirect('user/dashboard', $validasi);
             } else {

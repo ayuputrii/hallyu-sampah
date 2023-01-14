@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php $title; ?></title>
+  <title><?= $title; ?></title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
@@ -24,9 +24,9 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Silahkan isi data register berikut :</p>
-                <form action="/Auth/create" method="post">
+                <form  id="formRegister" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="user_name" class="form-control" placeholder="Nama Lengkap" required>
+                        <input type="text" name="customer_name" class="form-control" placeholder="Nama Lengkap" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <button type="submit" class="btn btn-info btn-block">Register</button>
+                            <button type="submit" id="btnRegister" class="btn btn-info btn-block">Register</button>
                         </div>
                     </div>
                     <a href="<?php echo base_url('user') ?>" class="text-center text-white">Sudah punya akun? Login disini</a>
@@ -72,25 +72,56 @@
     <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/templates/adminlte320/js/adminlte.min.js"></script>
-    <Script>
+  
+    <script>
       $(document).ready(function() {
-        // initial plugins
         const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true
         });
-        // tampilkan password
         $('#tampil_password').click(function() {
-            if ($(this).is(':checked')) {
-              $('#password').attr('type', 'text');
-              $('#ulangi_password').attr('type', 'text');
+          if ($(this).is(':checked')) {
+            $('#password').attr('type', 'text');
+          } else {
+            $('#password').attr('type', 'password');
+          }
+        });
+
+        //Register Sistem
+        $('#btnRegister').on('click', function(e) {
+          e.preventDefault();
+          const formRegister = $('#formRegister');
+          $.ajax({
+            url: "/Auth/create",
+            method: "POST",
+            data: formRegister.serialize(),
+            dataType: "JSON",
+            success: function(data) {
+              if (data.error) {
+                if (data.register_error['customer_name'] != '') $('#customer_name_error').html(data.register_error['customer_name']);
+                else $('#customer_name_error').html('');
+                if (data.register_error['username'] != '') $('#username_error').html(data.register_error['username']);
+                else $('#username_error').html('');
+                if (data.register_error['password'] != '') $('#password_error').html(data.register_error['password']);
+                else $('#password_error').html('');
+              }
+              if (data.success) {
+                formRegister.trigger('reset');
+                $('#user_name_error').html('');
+                $('#username_error').html('');
+                $('#password_error').html('');
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Register Anda berhasil.'
+                }).then(() => {
+                  window.location.replace(data.link);
+                });
+              }
             }
-            else {
-              $('#password').attr('type', 'password');
-            }
+          });
         });
       });
     </script>

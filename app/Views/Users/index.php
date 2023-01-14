@@ -23,7 +23,7 @@
       </div>
       <div class="card-body">
         <p class="login-box-msg">Silahkan login untuk masuk ke sistem</p>
-        <form action="/Auth/cek_user_login" method="post">
+        <form action="/Auth/user_login" method="post">
           <div class="input-group mb-3">
             <input type="username" id="username" name="username" class="form-control" placeholder="Username" required>
             <div class="input-group-append">

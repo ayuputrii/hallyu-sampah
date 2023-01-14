@@ -24,7 +24,7 @@
       </div>
       <div class="card-body">
         <p class="login-box-msg">Silahkan login untuk masuk ke sistem Admin</p>
-        <form action="/Auth/cek_admin_login" method="post">
+        <form action="/Auth/admin_login" method="post">
           <div class="input-group mb-3">
             <input type="username" id="username" name="username" class="form-control" placeholder="Username" required>
             <div class="input-group-append">

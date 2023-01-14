@@ -42,7 +42,7 @@ class Validation extends BaseConfig
     // Rules
     //--------------------------------------------------------------------
 
-    // Validasi Login
+    // Validation Login
     public $login = [
         'username' => [
             'label'  => 'Username',
@@ -60,9 +60,9 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi Register
+    // Validation Register
     public $register = [
-        'nama_nasabah' => [
+        'customer_name' => [
             'label'  => 'Nama Lengkap',
             'rules'  => 'required',
             'errors' => [
@@ -71,7 +71,7 @@ class Validation extends BaseConfig
         ],
         'username' => [
             'label'  => 'Username',
-            'rules'  => 'required|is_unique[nasabah.username]',
+            'rules'  => 'required|is_unique[tb_customers.username]',
             'errors' => [
                 'required'  => 'Username Tidak Boleh Kosong!',
                 'is_unique' => 'Username sudah pernah digunakan!'
@@ -84,64 +84,55 @@ class Validation extends BaseConfig
                 'required' => 'Password Tidak Boleh Kosong!'
             ]
         ],
-        'ulangi_password' => [
-            'label'  => 'Ulangi Password',
-            'rules'  => 'required|matches[password]',
-            'errors' => [
-                'required' => 'Ulangi Password Tidak Boleh Kosong!',
-                'matches'  => 'Ulangi Password Salah!'
-            ]
-        ]
     ];
 
-
-    // Validasi Data sampah
-    public $sampah = [
-        'nama_sampah' => [
+    // Validation Rubbish
+    public $rubbish = [
+        'rubbish_name' => [
             'label'  => 'Nama Sampah',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Nama Sampah tidak boleh kosong!'
             ]
         ],
-        'id_jenis' => [
+        'id_type' => [
             'label'  => 'Jenis Sampah',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Jenis Sampah tidak boleh kosong!'
             ]
         ],
-        'id_satuan' => [
+        'id_unit' => [
             'label'  => 'Satuan',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Satuan tidak boleh kosong!'
             ]
         ],
-        'deskripsi' => [
+        'desc' => [
             'label'  => 'Deskripsi',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Deskripsi tidak boleh kosong!'
             ]
         ],
-        'harga' => [
+        'price' => [
             'label'  => 'Harga',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Harga tidak boleh kosong!'
             ]
         ],
-        'stok' => [
+        'stock' => [
             'label'  => 'Stok',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Stok tidak boleh kosong!'
             ]
         ],
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',
@@ -150,9 +141,9 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi Jenis
-    public $jenis = [
-        'nama_jenis' => [
+    // Validation Jenis
+    public $type = [
+        'type_name' => [
             'label'  => 'Nama Jenis',
             'rules'  => 'required',
             'errors' => [
@@ -161,9 +152,9 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi Satuan
-    public $satuan = [
-        'nama_satuan' => [
+    // Validation Satuan
+    public $unit = [
+        'unit_name' => [
             'label'  => 'Nama Satuan',
             'rules'  => 'required',
             'errors' => [
@@ -172,9 +163,9 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi Data user
-    public $user_add = [
-        'nama_user' => [
+    // Validation Data user
+    public $add_user = [
+        'user_name' => [
             'label'  => 'Nama User',
             'rules'  => 'required',
             'errors' => [
@@ -183,7 +174,7 @@ class Validation extends BaseConfig
         ],
         'username' => [
             'label'  => 'Username',
-            'rules'  => 'required|is_unique[user.username]',
+            'rules'  => 'required|is_unique[tb_users.username]',
             'errors' => [
                 'required'  => 'Username Tidak Boleh Kosong!',
                 'is_unique' => 'Username sudah pernah digunakan!'
@@ -203,9 +194,9 @@ class Validation extends BaseConfig
                 'required' => 'Level tidak boleh kosong!'
             ]
         ],
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',
@@ -213,8 +204,8 @@ class Validation extends BaseConfig
             ]
         ]
     ];
-    public $user_edit = [
-        'nama_user' => [
+    public $update_user = [
+        'user_name' => [
             'label'  => 'Nama User',
             'rules'  => 'required',
             'errors' => [
@@ -235,9 +226,9 @@ class Validation extends BaseConfig
                 'required' => 'Level tidak boleh kosong!'
             ]
         ],
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',
@@ -246,8 +237,8 @@ class Validation extends BaseConfig
         ]
     ];
 
-    public $profil = [
-        'nama_user' => [
+    public $profile_admin = [
+        'user_name' => [
             'label'  => 'Nama User',
             'rules'  => 'required',
             'errors' => [
@@ -268,9 +259,9 @@ class Validation extends BaseConfig
                 'required' => 'Level tidak boleh kosong!'
             ]
         ],
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',
@@ -279,8 +270,8 @@ class Validation extends BaseConfig
         ]
     ];
 
-    public $profil_user = [
-        'nama_nasabah' => [
+    public $profile_user = [
+        'customer_name' => [
             'label'  => 'Nama Nasabah',
             'rules'  => 'required',
             'errors' => [
@@ -294,23 +285,23 @@ class Validation extends BaseConfig
                 'required' => 'Username tidak boleh kosong!'
             ]
         ],
-        'alamat' => [
+        'address' => [
             'label'  => 'Alamat',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Alamat tidak boleh kosong!'
             ]
         ],
-        'telepon' => [
+        'phone' => [
             'label'  => 'Telepon',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Telepon tidak boleh kosong!'
             ]
         ],        
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',
@@ -319,16 +310,16 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi transaksi setor sampah
-    public $setor_sampah_user = [
-        'id_sampah' => [
+    // Validation transaksi setor sampah
+    public $rubbish_deposit_user = [
+        'id_rubbish' => [
             'label'  => 'Nama Sampah',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Nama Sampah tidak boleh kosong!'
             ]
         ],
-        'jumlah' => [
+        'total_deposit' => [
             'label'  => 'Jumlah',
             'rules'  => 'required',
             'errors' => [
@@ -342,7 +333,7 @@ class Validation extends BaseConfig
                 'required' => 'Total tidak boleh kosong!'
             ]
         ],
-        'tgl_penjemputan' => [
+        'date_delivery' => [
             'label'  => 'Tgl. Penjemputan',
             'rules'  => 'required',
             'errors' => [
@@ -352,7 +343,7 @@ class Validation extends BaseConfig
     ];
 
     // Validasi transaksi setor sampah
-    public $setor_sampah_admin = [
+    public $rubbish_deposit_admin = [
         'status' => [
             'label'  => 'Status',
             'rules'  => 'required',
@@ -362,16 +353,16 @@ class Validation extends BaseConfig
         ],
     ];
 
-    // Validasi transaksi penarikan
-    public $penarikan = [
-        'id_rekening' => [
+    // Validation transaction
+    public $transaction_user = [
+        'id_account' => [
             'label'  => 'Rekening',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Rekening tidak boleh kosong!'
             ]
         ],
-        'jumlah' => [
+        'total' => [
             'label'  => 'Jumlah',
             'rules'  => 'required',
             'errors' => [
@@ -380,8 +371,8 @@ class Validation extends BaseConfig
         ],
     ];
 
-    // Validasi transaksi penarikan
-    public $penarikan_admin = [
+    // Validation transaction
+    public $transaction_admin = [
         'status' => [
             'label'  => 'Status',
             'rules'  => 'required',
@@ -391,23 +382,23 @@ class Validation extends BaseConfig
         ],
     ];
 
-    // Validasi rekening
-    public $rekening = [
-        'nama_bank' => [
+    // Validation Account Bank
+    public $account = [
+        'bank_name' => [
             'label'  => 'Nama Bank',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Nama Bank tidak boleh kosong!'
             ]
         ],
-        'no_rekening' => [
+        'account_number' => [
             'label'  => 'No. Rekening',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'No. Rekening tidak boleh kosong!'
             ]
         ],
-        'atas_nama' => [
+        'the_name_of' => [
             'label'  => 'Atas Nama',
             'rules'  => 'required',
             'errors' => [
@@ -416,32 +407,32 @@ class Validation extends BaseConfig
         ]
     ];
 
-    // Validasi nasabah
-    public $nasabah_edit = [
-        'nama_nasabah' => [
+    // Validation Customers
+    public $update_customer = [
+        'customer_name' => [
             'label'  => 'Nama Nasabah',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Nama Nasabah tidak boleh kosong!'
             ]
         ],
-        'alamat' => [
+        'address' => [
             'label'  => 'Alamat',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Alamat tidak boleh kosong!'
             ]
         ],
-        'telepon' => [
+        'phone' => [
             'label'  => 'Telepon',
             'rules'  => 'required',
             'errors' => [
                 'required' => 'Telepon tidak boleh kosong!'
             ]
         ],
-        'foto' => [
+        'photo' => [
             'label'  => 'Foto',
-            'rules'  => 'max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png,image/gif]',
+            'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]',
             'errors' => [
                 'max_size' => 'Ukuran File Foto maksimal 2MB!',
                 'is_image' => 'Yang anda pilih bukan gambar!',

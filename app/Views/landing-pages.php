@@ -56,7 +56,7 @@
                     <div class="content">
                         <h2>Tentang Kami</h2>
                         <p>
-                            Hallyu Sampah! merupakan wadah penampungan sampah dari STTI NIIT ITech yang akan ditransfer ke perusahaan limbah sampah, untuk mengurangi limbah di masyarakat Indonesia.
+                            Hallyu Sampah! merupakan wadah penampungan sampah yang akan dijual kepada perusahaan limbah sampah, untuk mengurangi limbah atau sampah di masyarakat Indonesia.
                         </p>
                     </div>
                 </div>
@@ -188,14 +188,14 @@
                             <div class="info-box">
                                 <i class="bi bi-geo-alt"></i>
                                 <h3>Alamat</h3>
-                                <p>Jl. Asem Dua No.22, RT.3/RW.4, Cipete Sel., Kec. Cilandak, <br>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12410</p>
+                                <p>Jl. Jakarta <br>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12410</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="info-box">
                                 <i class="bi bi-telephone"></i>
                                 <h3>Telepon</h3>
-                                <p>(021)7515870</p>
+                                <p>(021)00232832</p>
                             </div>
                         </div>
                         <div class="col-md-6">

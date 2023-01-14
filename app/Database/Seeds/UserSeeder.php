@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
                 'user_name' => 'Ayu Armadani',
                 'username'  => 'ayuarmadani',
                 'password'  => password_hash('12345678', PASSWORD_DEFAULT),
-                'level'     => 'user',
+                'level'     => 'User',
             ],
         ];
 

@@ -5,14 +5,13 @@ namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class CustomerModel extends Model
+class RubbishModel extends Model
 {
-  protected $table = "tb_customers";
+  protected $table = "tb_rubbish";
   protected $primaryKey = 'id';
-  protected $useAutoIncrement = true;
-  protected $allowedFields = ['customer_name', 'username', 'password', 'address', 'phone', 'balance', 'photo'];
-  protected $column_order = [null, 'customer_name', 'level', null];
-  protected $column_search = ['customer_name', 'level'];
+  protected $allowedFields = ['rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo'];
+  protected $column_order = [null, 'rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo', null];
+  protected $column_search = ['rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo'];
   protected $order = ['id' => 'desc'];
   protected $request;
   protected $db;
@@ -21,9 +20,12 @@ class CustomerModel extends Model
   function __construct(RequestInterface $request)
   {
     parent::__construct();
-    $this->db = db_connect();
+    $this->db      = db_connect();
     $this->request = $request;
-    $this->dt = $this->db->table($this->table);
+    $this->dt      = $this->db->table($this->table);
+    $this->dt      = $this->db->table($this->table)->select('tb_rubbish.id, photo, rubbish_name, tb_rubbish_type.type_name, tb_rubbish_unit.unit_name, price, desc, stock')
+    ->join('tb_rubbish_type', 'tb_rubbish_type.id = tb_rubbish.id_type', 'left')
+    ->join('tb_rubbish_unit', 'tb_rubbish_unit.id = tb_rubbish.id_unit', 'left');
   }
 
   private function _get_datatables_query()

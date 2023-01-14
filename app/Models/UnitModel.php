@@ -5,18 +5,17 @@ namespace App\Models;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
 
-class CustomerModel extends Model
+class UnitModel extends Model
 {
-  protected $table = "tb_customers";
-  protected $primaryKey = 'id';
-  protected $useAutoIncrement = true;
-  protected $allowedFields = ['customer_name', 'username', 'password', 'address', 'phone', 'balance', 'photo'];
-  protected $column_order = [null, 'customer_name', 'level', null];
-  protected $column_search = ['customer_name', 'level'];
-  protected $order = ['id' => 'desc'];
-  protected $request;
-  protected $db;
-  protected $dt;
+    protected $table = "tb_rubbish_unit";
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['unit_name'];
+    protected $column_order = [null, 'unit_name', null];
+    protected $column_search = ['unit_name'];
+    protected $order = ['id' => 'desc'];
+    protected $request;
+    protected $db;
+    protected $dt;
 
   function __construct(RequestInterface $request)
   {

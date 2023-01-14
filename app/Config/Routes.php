@@ -39,6 +39,14 @@ $routes->get('/', 'Home::index');
 $routes->group('admin', function ($routes) {
     $routes->get('/', 'Auth::admin');
     $routes->get('dashboard', 'Dashboard::admin');
+    $routes->get('profil', 'Profile::admin');
+    $routes->get('transaksi-penarikan', 'Transaction::admin');
+    $routes->get('setor-sampah', 'RubbishDeposit::admin');
+    $routes->get('sampah', 'Rubbish::index');
+    $routes->get('satuan', 'RubbishUnit::index');
+    $routes->get('jenis', 'RubbishType::index');
+    $routes->get('nasabah', 'Customers::index');
+    $routes->get('user', 'Users::index');
     $routes->get('logout', 'Auth::admin_logout');
 });
 
@@ -46,6 +54,10 @@ $routes->group('user', function ($routes) {
     $routes->get('/', 'Auth::user');
     $routes->get('register', 'Auth::register');
     $routes->get('dashboard', 'Dashboard::user');
+    $routes->get('transaksi-setor-sampah', 'RubbishDeposit::user');
+    $routes->get('penarikan-saldo', 'Transaction::user');
+    $routes->get('rekening', 'Account::index');
+    $routes->get('profil', 'Profile::user');
     $routes->get('logout', 'Auth::user_logout');
 });
 

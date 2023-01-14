@@ -32,7 +32,7 @@
                         <div class="icon">
                             <i class="fas fa-wallet"></i>
                         </div>
-                        <a href="transaksi-penarikan" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('user/penarikan-saldo'); ?>" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
