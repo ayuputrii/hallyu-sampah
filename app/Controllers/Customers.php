@@ -70,7 +70,6 @@ class Customers extends BaseController
 
         //Cek Validasi data customers, Jika Data Tidak Valid 
         if ($this->form_validation->run($data_validasi, 'update_customer') == FALSE) {
-
             $validasi = [
                 'error'           => true,
                 'customers_error' => $this->form_validation->getErrors()
@@ -129,8 +128,8 @@ class Customers extends BaseController
     {
         if ($this->request->getMethod(true) == 'POST') {
             $lists = $this->ModelCustomer->get_datatables();
-            $data = [];
-            $no = $this->request->getPost("start");
+            $data  = [];
+            $no    = $this->request->getPost("start");
             foreach ($lists as $list) {
                 $no++;
                 $row    = [];

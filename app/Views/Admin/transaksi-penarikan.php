@@ -241,12 +241,10 @@
                     processData: false,
                     dataType: "JSON",
                     success: function(data) {
-                        //Data error 
                         if (data.error) {
                             if (data.penarikan_error['status'] != '') $('#status_error').html(data.penarikan_error['status']);
                             else $('#status_error').html('');
                         }
-                        //Data sampah berhasil disimpan
                         if (data.success) {
                             $('#formPenarikan')[0].reset();
                             $('#modalPenarikan').modal('hide');

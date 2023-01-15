@@ -11,7 +11,7 @@ class RubbishModel extends Model
   protected $primaryKey = 'id';
   protected $allowedFields = ['rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo'];
   protected $column_order = [null, 'rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo', null];
-  protected $column_search = ['rubbish_name', 'id_type', 'id_unit', 'price', 'desc', 'stock', 'photo'];
+  protected $column_search = ['rubbish_name', 'type_name', 'unit_name', 'price', 'desc', 'stock', 'photo'];
   protected $order = ['id' => 'desc'];
   protected $request;
   protected $db;

@@ -226,7 +226,6 @@
                     processData: false,
                     dataType: "JSON",
                     success: function(data) {
-                        //Data error 
                         if (data.error) {
                             if (data.customer_error['customer_name'] != '') $('#customer_name_error').html(data.customer_error['customer_name']);
                             else $('#customer_name_error').html('');
@@ -237,9 +236,7 @@
                             if (data.customer_error['foto'] != '') $('#photo_error').html(data.customer_error['foto']);
                             else $('#photo_error').html('');
                         }
-                        //Data nasabah berhasil disimpan
                         if (data.success) {
-                            // reset form
                             $('#formCustomer')[0].reset();
                             $('#modalCustomer').modal('hide');
                             $('#customer_name_error').html('');
@@ -247,7 +244,6 @@
                             $('#phone_error').html('');
                             $('#photo_error').html('');
                             $('#tabel-customer').DataTable().ajax.reload();
-                            // tampilkan pesan sukses simpan data
                             Toast.fire({
                                 icon: 'success',
                                 title: 'Data Nasabah berhasil disimpan.'

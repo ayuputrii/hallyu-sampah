@@ -11,7 +11,7 @@ class AdminTransactionModel extends Model
   protected $primaryKey = 'id';
   protected $allowedFields = ['datetime', 'id_customer', 'id_account', 'total', 'date_verification', 'status'];
   protected $column_order = [null, 'datetime', 'id_customer', 'id_account', 'total', 'date_verification', 'status', null];
-  protected $column_search = ['datetime', 'id_customer', 'id_account', 'total', 'date_verification', 'status'];
+  protected $column_search = ['datetime', 'customer_name', 'bank_name', 'total', 'date_verification', 'status'];
   protected $order = ['id' => 'desc'];
   protected $request;
   protected $db;

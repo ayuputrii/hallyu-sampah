@@ -139,33 +139,33 @@ class Transaction extends BaseController
     //Cek Validasi data transaction, Jika Data Tidak Valid 
     if ($this->form_validation->run($data_validasi, 'transaction_admin') == FALSE) {
       $validasi = [
-        'error'     => true,
+        'error'             => true,
         'transaction_error' => $this->form_validation->getErrors()
       ];
       echo json_encode($validasi);
     } else {
       if ($status != 'Berhasil') {
         $data_transaction = [
-        'date_verification' => trim(date('d-m-Y')),
-        'status'     => $status
+          'date_verification' => trim(date('d-m-Y')),
+          'status'            => $status
         ];
         $this->AdminTransactionModel->update($id, $data_transaction);
         $validasi = [
-        'success' => true
+          'success' => true
         ];
         echo json_encode($validasi);
       } else {
         $data_customer = [
-        'balance' => $balance
+          'balance' => $balance
         ];
         $this->ModelCustomer->update($id_customer, $data_customer);
         $data_transaction = [
-        'date_verification' => trim(date('d-m-Y')),
-        'status'     => $status
+          'date_verification' => trim(date('d-m-Y')),
+          'status'            => $status
         ];
         $this->AdminTransactionModel->update($id, $data_transaction);
         $validasi = [
-        'success' => true
+          'success' => true
         ];
         echo json_encode($validasi);
       }

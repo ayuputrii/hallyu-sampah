@@ -140,6 +140,7 @@
                                 '</tr>' :
                                 '';
                         }).join('');
+                        
                         return data ?
                             $('<table/>').append(data) :
                             false;

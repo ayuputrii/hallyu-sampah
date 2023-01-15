@@ -37,7 +37,7 @@ class RubbishDeposit extends BaseController
 		$data['menu']	  	  = "";
 		$data['page']	  	  = "setor-sampah";
     $data['id']         = $this->session->get('id');
-		$data['user_name'] 	= $this->session>get('user_name');
+		$data['user_name']	= $this->session->get('user_name');
 		$data['level']	    = $this->session->get('level');
 		$data['photo']	  	= $this->session->get('photo');
 		return view('Admin/setor-sampah', $data);
@@ -233,9 +233,9 @@ class RubbishDeposit extends BaseController
         $row[]  = $list->customer_name;
         $row[]  = $list->phone;
         $row[]  = $list->rubbish_name;
-        $row[]  = $list->total;
         $row[]  = $list->total_deposit;
         $row[]  = $list->unit_name;
+        $row[]  = $list->total;
         $row[]  = $list->address;
         $row[]  = date("d-m-Y", strtotime($list->date_delivery));
         $row[]  = $list->status;
